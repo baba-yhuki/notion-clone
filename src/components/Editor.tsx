@@ -1,6 +1,7 @@
 import { locales } from "@blocknote/core";
-import { useCreateBlockNote, BlockNoteViewRaw } from "@blocknote/react";
+import { useCreateBlockNote } from "@blocknote/react";
 import "@blocknote/mantine/style.css";
+import { BlockNoteView } from "@blocknote/mantine";
 
 interface EditorProps {
   onChange: (value: string) => void;
@@ -13,10 +14,11 @@ function Editor({ onChange, initialContent }: EditorProps) {
     initialContent:
       initialContent != null ? JSON.parse(initialContent) : undefined,
   });
+
   return (
     <div>
-      <BlockNoteViewRaw
-        editor={editor as any}
+      <BlockNoteView
+        editor={editor}
         onChange={() => onChange(JSON.stringify(editor.document))}
       />
     </div>

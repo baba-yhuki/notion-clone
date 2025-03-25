@@ -17,7 +17,7 @@ function Editor({ onChange, initialContent }: EditorProps) {
   return (
     <div>
       <BlockNoteView
-        editor={editor}
+        editor={editor as any}
         onChange={() => onChange(JSON.stringify(editor.document))}
       />
     </div>
